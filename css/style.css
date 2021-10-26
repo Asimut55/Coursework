@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -122,7 +123,8 @@ h1, h2, h3, h4, h5, h6 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: center;
-  font: normal 600 16px/22px "Open Sans", sans-serif;
+  font: normal 600 20px/110% "Open Sans", sans-serif;
+  line-height: 22px;
   color: #000000;
   letter-spacing: 0.1em;
 }
@@ -315,7 +317,7 @@ h1, h2, h3, h4, h5, h6 {
 .wrapper .services__block .services__block_container .services__block_content_block .research-block, .wrapper .services__block .services__block_container .services__block_content_block .portfolio-block, .wrapper .services__block .services__block_container .services__block_content_block .support-block,
 .wrapper .services__block .services__block_container .services__block_content_block .documentation-block, .wrapper .services__block .services__block_container .services__block_content_block .development-block, .wrapper .services__block .services__block_container .services__block_content_block .design-block {
   width: 27%;
-  background-color: #FFFFFF;
+  background: #FFFFFF url("/img/smartphone-black 1.png") center 50px no-repeat;
   min-height: 439px;
   text-align: center;
   padding: 50px 40px;
@@ -327,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 22px;
   letter-spacing: 0.1em;
   color: #000000;
-  padding-top: 40px;
+  padding-top: 90px;
 }
 .wrapper .services__block .services__block_container .services__block_content_block .research-block .block-text, .wrapper .services__block .services__block_container .services__block_content_block .portfolio-block .block-text, .wrapper .services__block .services__block_container .services__block_content_block .support-block .block-text,
 .wrapper .services__block .services__block_container .services__block_content_block .documentation-block .block-text, .wrapper .services__block .services__block_container .services__block_content_block .development-block .block-text, .wrapper .services__block .services__block_container .services__block_content_block .design-block .block-text {
@@ -355,13 +357,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 .wrapper .services__block .services__block_container .services__block_content_block .research-block:hover, .wrapper .services__block .services__block_container .services__block_content_block .portfolio-block:hover, .wrapper .services__block .services__block_container .services__block_content_block .support-block:hover,
 .wrapper .services__block .services__block_container .services__block_content_block .documentation-block:hover, .wrapper .services__block .services__block_container .services__block_content_block .development-block:hover, .wrapper .services__block .services__block_container .services__block_content_block .design-block:hover {
-  background-color: #00897B;
+  background: #00897B url("/img/smartphone-white 1.png") center 50px no-repeat;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 }
 .wrapper .services__block .services__block_container .services__block_content_block .research-block:hover .block-title, .wrapper .services__block .services__block_container .services__block_content_block .research-block:hover .block-text, .wrapper .services__block .services__block_container .services__block_content_block .portfolio-block:hover .block-title, .wrapper .services__block .services__block_container .services__block_content_block .portfolio-block:hover .block-text, .wrapper .services__block .services__block_container .services__block_content_block .support-block:hover .block-title, .wrapper .services__block .services__block_container .services__block_content_block .support-block:hover .block-text,
 .wrapper .services__block .services__block_container .services__block_content_block .documentation-block:hover .block-title,
 .wrapper .services__block .services__block_container .services__block_content_block .documentation-block:hover .block-text, .wrapper .services__block .services__block_container .services__block_content_block .development-block:hover .block-title, .wrapper .services__block .services__block_container .services__block_content_block .development-block:hover .block-text, .wrapper .services__block .services__block_container .services__block_content_block .design-block:hover .block-title, .wrapper .services__block .services__block_container .services__block_content_block .design-block:hover .block-text {
+  color: #FFFFFF;
+}
+.wrapper .services__block .services__block_container .services__block_content_block .research-block:hover .block_button, .wrapper .services__block .services__block_container .services__block_content_block .portfolio-block:hover .block_button, .wrapper .services__block .services__block_container .services__block_content_block .support-block:hover .block_button,
+.wrapper .services__block .services__block_container .services__block_content_block .documentation-block:hover .block_button, .wrapper .services__block .services__block_container .services__block_content_block .development-block:hover .block_button, .wrapper .services__block .services__block_container .services__block_content_block .design-block:hover .block_button {
+  border: 2px solid #FFFFFF;
   color: #FFFFFF;
 }
 .wrapper .services__block .services__block_container .services__block_button {
@@ -654,14 +661,21 @@ h1, h2, h3, h4, h5, h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  /*align-items: center;*/
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 .wrapper .blog__block .blog__block__container .blog__block_content .content_block {
+  /* Разбить на разные блоки и установить каждому свою высоту?? (средний блок на 10рх ниже) */
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -670,10 +684,28 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 auto;
-  /*align-items: center;*/
+  margin: 0 10%;
+  height: 460px;
+  /* flex: 2 1 1200px;*/
+  /* Третья величина - непоняяяяяятно... */
+}
+.wrapper .blog__block .blog__block__container .blog__block_content .content_block .content_block_image_block-1 {
+  width: 49%;
+  margin-left: 30px;
+  background: url("/img/image-1 1.png") right bottom no-repeat;
+}
+.wrapper .blog__block .blog__block__container .blog__block_content .content_block .content_block_image_block-2 {
+  width: 49%;
+  margin-right: 30px;
+  background: url("/img/image-2 1.png") left top no-repeat;
+}
+.wrapper .blog__block .blog__block__container .blog__block_content .content_block .content_block_image_block-3 {
+  width: 49%;
+  margin-left: 30px;
+  background: url("/img/image-3 1.png") right top no-repeat;
 }
 .wrapper .blog__block .blog__block__container .blog__block_content .content_block .content_block_text_block {
+  width: 51%;
   padding: 70px 0 0 70px;
 }
 .wrapper .blog__block .blog__block__container .blog__block_content .content_block .content_block_text_block .content_block_title a {
@@ -719,6 +751,7 @@ h1, h2, h3, h4, h5, h6 {
           flex-direction: row-reverse;
 }
 .wrapper .blog__block .blog__block__container .blog__block_button {
+  display: block;
   width: 220px;
   height: 70px;
   text-align: center;
@@ -761,6 +794,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .wrapper .contact__block .contact__block__container .contact__block__group_block {
   margin: 115px auto;
+  width: 86%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -772,12 +806,14 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
 }
 .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__address_block .marker, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__phone_block .marker, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__email_block .marker {
+  display: block;
   width: 110px;
   height: 110px;
   border-radius: 110px;
   background-color: #3949AB;
   margin: 0 auto;
-  position: relative;
+  -ms-flex-line-pack: center;
+      align-content: center;
   /*  img:nth-child(1) {
       left:26px;
     }
@@ -789,8 +825,9 @@ h1, h2, h3, h4, h5, h6 {
     }*/
 }
 .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__address_block .marker img, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__phone_block .marker img, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__email_block .marker img {
-  position: absolute;
-  margin: 26px auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 26px;
 }
 .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__address_block .address_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__address_block .phone_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__address_block .email_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__phone_block .address_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__phone_block .phone_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__phone_block .email_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__email_block .address_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__email_block .phone_text, .wrapper .contact__block .contact__block__container .contact__block__group_block .contact__block__email_block .email_text {
   margin: 0 auto;
@@ -805,6 +842,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 .wrapper .contact__block .contact__block__container .contact__block__input_block {
+  width: 86%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -814,6 +852,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 auto;
 }
 .wrapper .contact__block .contact__block__container .contact__block__input_block .contact_form input {
   width: 570px;
@@ -847,12 +886,13 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 28px;
   letter-spacing: 0.1em;
   color: #000000;
-  padding-left: 30px;
+  padding: 36px 0 0 30px;
   border-radius: 20px;
   margin-bottom: 40px;
   text-align: start;
 }
 .wrapper .contact__block .contact__block__container .contact__block__button {
+  display: block;
   width: 400px;
   height: 100px;
   text-align: center;
@@ -864,4 +904,67 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   border-radius: 20px;
   margin: 0 auto;
+}
+.wrapper .footer {
+  width: 100%;
+  min-height: 190px;
+  background-color: #FFFFFF;
+}
+.wrapper .footer .footer__container {
+  width: 86%;
+  margin: 86px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.wrapper .footer .footer__container .footer_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  font: normal 20px/110% "Open Sans", sans-serif;
+  line-height: 22px;
+  color: #000000;
+  letter-spacing: 0.1em;
+}
+.wrapper .footer .footer__container .footer_menu li {
+  margin-right: 40px;
+}
+.wrapper .footer .footer__container .footer_menu a {
+  color: #000000;
+}
+.wrapper .footer .footer__container .footer_side_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.wrapper .footer .footer__container .footer_side_block .footer_text {
+  font: normal 18px/156% "Open Sans", sans-serif;
+  line-height: 28px;
+  color: #000000;
+  letter-spacing: 0.0025em;
+  text-transform: uppercase;
+}
+.wrapper .footer .footer__container .footer_side_block .footer__social__network_list {
+  margin-top: 8px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.wrapper .footer .footer__container .footer_side_block .footer__social__network_list li {
+  display: inline;
 }

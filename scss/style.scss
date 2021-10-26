@@ -44,7 +44,6 @@ $bg: transparent;
     align-items: flex-end;
     flex-direction: row;
     span {
-
       font: normal 16px/22px $Family;
       color: $color_black;
       letter-spacing: 0.1em;
@@ -56,7 +55,8 @@ $bg: transparent;
       justify-content: space-between;
       flex-wrap: wrap;
       text-align: center;
-      font: normal 600 16px/22px $Family;
+      font: normal 600 20px/110% $Family;
+      line-height: 22px;
       color: $color_black;
       letter-spacing: 0.1em;
       li {
@@ -218,7 +218,7 @@ $bg: transparent;
        .research-block, .portfolio-block, .support-block,
        .documentation-block, .development-block, .design-block {
          width: 27%;
-         background-color: $color_white;
+         background: $color_white url("/img/smartphone-black 1.png") center 50px no-repeat;
          min-height: 439px;
          text-align: center;
          padding: 50px 40px ;
@@ -228,7 +228,7 @@ $bg: transparent;
            line-height: 22px;
            letter-spacing: 0.1em;
            color: $color_black;
-           padding-top: 40px;
+           padding-top: 90px;
          }
          .block-text {
            font: normal 15px/167% $Family;
@@ -255,9 +255,13 @@ $bg: transparent;
         }
         .research-block:hover, .portfolio-block:hover, .support-block:hover,
         .documentation-block:hover, .development-block:hover, .design-block:hover {
-          background-color: $color_blue_green;
+          background: $color_blue_green url("/img/smartphone-white 1.png") center 50px no-repeat;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
           .block-title, .block-text {
+            color: $color_white;
+          }
+          .block_button {
+            border: 2px solid $color_white;
             color: $color_white;
           }
         }
@@ -514,7 +518,6 @@ $bg: transparent;
       width: 100%;
       min-height: 1960px;
       background-color: $color_light_blue;
-
       .blog__block__container {
         width: 86%;
         margin: 0 auto;
@@ -539,17 +542,35 @@ $bg: transparent;
           width: 100%;
           margin: 115px auto 50px;
           display: flex;
-          flex-wrap: wrap;
-          /*align-items: center;*/
+          flex-wrap: nowrap;
+          flex-direction: column;
+          align-items: center;
           justify-content: center;
-
-          .content_block {
+          .content_block {   /* Разбить на разные блоки и установить каждому свою высоту?? (средний блок на 10рх ниже) */
             width: 95%;
             display: flex;
             flex-direction: row;
-            margin: 0 auto;
-            /*align-items: center;*/
+            margin: 0 10%;
+            height: 460px;
+           /* flex: 2 1 1200px;*/     /* Третья величина - непоняяяяяятно... */
+
+            .content_block_image_block-1 {
+              width: 49%;
+              margin-left: 30px;
+              background: url("/img/image-1 1.png") right bottom no-repeat;
+            }
+            .content_block_image_block-2 {
+              width: 49%;
+              margin-right: 30px;
+              background: url("/img/image-2 1.png") left top no-repeat;
+            }
+            .content_block_image_block-3 {
+              width: 49%;
+              margin-left: 30px;
+              background: url("/img/image-3 1.png") right top no-repeat;
+             }
             .content_block_text_block {
+              width: 51%;
               padding: 70px 0 0 70px;
 
               .content_block_title {
@@ -589,9 +610,11 @@ $bg: transparent;
           }
           .content_block:nth-child(2) {
             flex-direction: row-reverse;
+
           }
         }
         .blog__block_button {
+          display: block;
           width: 220px;
           height: 70px;
           text-align: center;
@@ -633,20 +656,23 @@ $bg: transparent;
       }
        .contact__block__group_block {
          margin: 115px auto;
+         width: 86%;
          display: flex;
          justify-content: space-between;
          align-items: center;
          .contact__block__address_block, .contact__block__phone_block, .contact__block__email_block {
          .marker {
-            width: 110px;
+           display: block;
+           width: 110px;
             height: 110px;
             border-radius: 110px;
             background-color: $color_violet;
             margin: 0 auto;
-            position: relative;
+           align-content: center;
              img {
-              position: absolute;
-               margin: 26px auto;
+               display: block;
+               margin: 0 auto;
+               padding-top: 26px;
              }
            /*  img:nth-child(1) {
                left:26px;
@@ -671,9 +697,11 @@ $bg: transparent;
          }
        }
     .contact__block__input_block {
+      width: 86%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin: 0 auto;
       .contact_form {
         input {
           width: 570px;
@@ -707,7 +735,7 @@ $bg: transparent;
           line-height: 28px;
           letter-spacing: 0.1em;
           color: $color_black;
-          padding-left: 30px;
+          padding: 36px 0 0 30px;
           border-radius: 20px;
           margin-bottom: 40px;
           text-align: start;
@@ -715,6 +743,7 @@ $bg: transparent;
       }
     }
       .contact__block__button {
+        display: block;
         width: 400px;
         height: 100px;
         text-align: center;
@@ -726,6 +755,53 @@ $bg: transparent;
         text-transform: uppercase;
         border-radius: 20px;
         margin: 0 auto;
+      }
+    }
+  }
+
+  .footer {
+    width: 100%;
+    min-height: 190px;
+    background-color: $color_white;
+    .footer__container {
+      width: 86%;
+      margin: 86px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .footer_menu {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+        font: normal 20px/110% $Family;
+        line-height: 22px;
+        color: $color_black;
+        letter-spacing: 0.1em;
+        li {
+          margin-right: 40px;
+        }
+        a{
+          color: $color_black;
+        }
+      }
+      .footer_side_block {
+       display: flex;
+       flex-direction: column;
+        .footer_text {
+          font: normal 18px/156% $Family;
+          line-height: 28px;
+          color: $color_black;
+          letter-spacing: 0.0025em;
+          text-transform: uppercase;
+        }
+        .footer__social__network_list {
+          margin-top: 8px;
+          align-self: flex-end;
+          li {
+            display: inline;
+          }
+          }
       }
     }
   }
