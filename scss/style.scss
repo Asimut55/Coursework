@@ -53,17 +53,6 @@ $bg: transparent;
   //transform: rotate(135deg);
   a {}
   }
-//@mixin arrow_up ($arrow_color) {
-//  width: 20px;
-//  height: 20px;
-//  display: block;
-//  border-top: 5px solid $arrow_color;
-//  border-right: 5px solid $arrow_color;
-//  transform: rotate(315deg);
-//  a {}
-//}
-
-
 
 .wrapper {
   width: 100%;
@@ -129,6 +118,7 @@ $bg: transparent;
     width: 100%;
     min-height: 747px;
     background: url("../img/content-top-fon 1.png") center center no-repeat;
+    margin-top: 120px;
 
     .slide__block__container {
       margin: 0 auto;
@@ -136,6 +126,7 @@ $bg: transparent;
       display: flex;
       flex-direction: column;
       align-items: center;
+      align-self: center;
 
       .head_block {
         margin: 217px auto 0;
@@ -161,7 +152,7 @@ $bg: transparent;
       .button_block {
         margin-top: 127px;
 
-        .services_button {
+        .slide_button {
           width: 220px;
           height: 70px;
           text-align: center;
@@ -171,23 +162,11 @@ $bg: transparent;
           font: bold 22px/26px $Button;
           letter-spacing: 0.1em;
           color: $color_white;
+        }
+        .slide_button:first-child {
           margin-right: 38px;
         }
-
-        .hire_button {
-          width: 220px;
-          height: 70px;
-          text-align: center;
-          text-transform: uppercase;
-          border: 4px solid $color_white;
-          background: $bg;
-          font: bold 22px/26px $Button;
-          letter-spacing: 0.1em;
-          color: $color_white;
-        }
-
-        .services_button:hover,
-        .hire_button:hover {
+        .slide_button.active {
           background: $color_blue_green;
           border: none;
         }
@@ -195,10 +174,8 @@ $bg: transparent;
 
       .arrow_down {
         margin-top: 127px;
-        display: block;
-        width: 34px;
-        height: 22px;
-        background-image: url("../img/arrow 1.png");
+        @include arrow($color_white);
+        transform: rotate(135deg);
       }
     }
   }
@@ -219,6 +196,9 @@ $bg: transparent;
       .head_block {
         @include head-block($color_black);
         margin-top: 115px;
+        .arrow_down {
+          display: none;
+        }
       }
 
       .about__content_block {
@@ -227,9 +207,7 @@ $bg: transparent;
         justify-content: space-between;
         align-items: center;
         margin: 102px auto 0;
-        //.arrow_up {
-        //  display: none;
-        //}
+
         .icons_block,
         .page_block,
         .brain_block {
@@ -279,6 +257,9 @@ $bg: transparent;
       .head_block {
         @include head-block($color_black);
         margin-top: 115px;
+        .arrow_down {
+          display: none;
+        }
       }
 
       .content_block {
@@ -293,12 +274,7 @@ $bg: transparent;
         //  display: none;
         //}
 
-        .research-block,
-        .portfolio-block,
-        .support-block,
-        .documentation-block,
-        .development-block,
-        .design-block {
+        .service_item {
           width: 27%;
           background: $color_white url("../img/smartphone-black 1.png") center 50px no-repeat;
           min-height: 439px;
@@ -306,7 +282,7 @@ $bg: transparent;
           padding: 50px 40px;
           margin: 0 45px 45px 0;
 
-          .block-title {
+          .item-title {
             font: normal 600 20px/110% $Family;
             line-height: 22px;
             letter-spacing: 0.1em;
@@ -314,14 +290,14 @@ $bg: transparent;
             padding-top: 90px;
           }
 
-          .block-text {
+          .item-text {
             font: normal 15px/167% $Family;
             line-height: 25px;
             letter-spacing: 0.1em;
             color: $color_black;
             padding-top: 20px;
           }
-          .block_button {
+          .item_button {
             width: 160px;
             height: 55px;
             text-align: center;
@@ -334,26 +310,21 @@ $bg: transparent;
             margin-top: 40px;
           }
         }
-        .support-block,
-        .design-block {
+        .service_item:nth-of-type(3),
+        .service_item:nth-of-type(6) {
           margin-right: 0;
         }
 
-        .research-block:hover,
-        .portfolio-block:hover,
-        .support-block:hover,
-        .documentation-block:hover,
-        .development-block:hover,
-        .design-block:hover {
+         .service_item.active {
           background: $color_blue_green url("../img/smartphone-white 1.png") center 50px no-repeat;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
 
-          .block-title,
-          .block-text {
+          .item-title,
+          .item-text {
             color: $color_white;
           }
 
-          .block_button {
+          .item_button {
             border: 2px solid $color_white;
             color: $color_white;
           }
@@ -389,6 +360,9 @@ $bg: transparent;
       .head_block {
         @include head-block($color_black);
         margin-top: 115px;
+        .arrow_down {
+          display: none;
+        }
       }
 
       .content_block {
@@ -404,15 +378,13 @@ $bg: transparent;
           display: none;
         }
 
-        .trial_block,
-        .basic_block,
-        .ultimate_block {
+        .price_item {
           width: 27%;
           background-color: $color_white;
           min-height: 669px;
           text-align: center;
 
-          .block_head {
+          .item_head {
             width: 100%;
             min-height: 210px;
             background-color: $color_violet;
@@ -488,15 +460,14 @@ $bg: transparent;
             color: $color_black;
           }
         }
-
-        .trial_block:hover,
-        .basic_block:hover,
-        .ultimate_block:hover {
+        .price_item:hover {
           box-shadow: 0 3px 25px rgba(0, 0, 0, 0.35);
-
+         }
+        .price_item.active {
           .block_button {
             background: $color_blue_green;
             color: $color_white;
+            border-color: $color_blue_green;
           }
         }
       }
@@ -518,6 +489,9 @@ $bg: transparent;
       .head_block {
         @include head-block($color_black);
         margin: 115px auto;
+        .arrow_down {
+          display: none;
+        }
       }
 
       .block_content {
@@ -622,6 +596,9 @@ $bg: transparent;
       .head_block {
         @include head-block($color_black);
         margin: 115px auto;
+        .arrow_down {
+          display: none;
+        }
       }
 
       .block_content {
@@ -633,9 +610,9 @@ $bg: transparent;
         align-items: center;
         justify-content: center;
 
-        .arrow_up {
-          display: none;
-        }
+        //.arrow_up {
+        //  display: none;
+        //}
 
         .content_block { /* Разбить на разные блоки и установить каждому свою высоту?? (средний блок на 10рх ниже) */
           width: 100%;
@@ -751,7 +728,6 @@ $bg: transparent;
           display: none;
         }
       }
-
       .group_block {
         margin: 0 auto 115px;
         width: 86%;
@@ -806,7 +782,7 @@ $bg: transparent;
           margin: 0 auto;
 
           .contact_form {
-            input {
+            .contact_form_input {
               width: 570px;
               height: 100px;
               font: normal 600 20px/148% $Family;
@@ -819,18 +795,7 @@ $bg: transparent;
             }
           }
           .message_form {
-            /*input {
-              width: 570px;
-              height: 380px;
-              font: normal 600 20px/148% $Family;
-              line-height: 28px;
-              letter-spacing: 0.1em;
-              color: $color_black;
-              padding-left: 30px;
-              border-radius: 20px;
-              margin-bottom: 40px;
-              text-align: start;
-            }*/
+
             textarea {
               width: 570px;
               height: 380px;
@@ -860,6 +825,9 @@ $bg: transparent;
           border-radius: 20px;
           margin: 10px auto 0;
         }
+      .contact__block__button.active {
+        box-shadow: 0 3px 25px #6573cc;
+      }
 
     }
   }
@@ -951,6 +919,9 @@ $bg: transparent;
         transform: rotate(135deg);
         margin: 30px auto;
       }
+      .arrow_down.active {
+        transform: rotate(315deg);
+      }
     }
 
     .wrapper {
@@ -960,7 +931,7 @@ $bg: transparent;
 
       .header {
         width: 100%;
-        min-height: 120px;
+        min-height: 75px;
         position: fixed;
         z-index: 5;
         top: 0;
@@ -994,11 +965,8 @@ $bg: transparent;
               //padding-left: 3px;
             }
           }
-
           .header__menu {
             display: none;
-
-
 
             .menu_list {
               display: flex;
@@ -1026,7 +994,6 @@ $bg: transparent;
             width: 100%;
             right: 0;
             top: 70px;
-
             padding-right: 40px;
             z-index: 3;
             overflow: auto;
@@ -1091,6 +1058,7 @@ $bg: transparent;
       .slide__block {
         width: 100%;
         min-height: 150px;
+        margin-top: 75px;
         background: url("../img/content-top-fon 1_small.png") top center no-repeat;
 
         .slide__block__container {
@@ -1116,30 +1084,25 @@ $bg: transparent;
             }
           }
 
-          .slide__block__button_block {
+          .button_block {
             display: flex;
             flex-direction: column;
             margin: 15px auto 0;
 
-            .services_button {
+            .slide_button {
               width: 110px;
               height: 25px;
               border: 2px solid $color_white;
               font: bold 10px/12px $Button;
               margin-right: 0;
             }
-            .hire_button {
-              margin-top: 10px;
-              width: 110px;
-              height: 25px;
-              border: 2px solid $color_white;
-              font: bold 10px/12px $Button;
-            }
-
-            /* .slide__block__services_button:hover, .slide__block__hire_button:hover {
+             .slide_button:first-child {
+               margin-bottom: 15px;
+             }
+             .slide_button.active {
                background: $color_blue_green;
                border: none;
-             }*/
+             }
           }
           .arrow_down {
             display: none;
@@ -1148,22 +1111,18 @@ $bg: transparent;
       }
 
       .about__block {
-        min-height: 961px;
+        min-height: 256px;
+        //.about__block
 
         .about__block__container {
           max-width: 320px;
-          margin: 30px auto;
+          margin: 30px auto 0;
 
           .head_block {
             @include head-block($color_black);
             margin-top: 0;
             width: 100%;
             min-height: 256px;
-            /* .arrow_down {
-               display: block;
-               margin-top: 30px;
-               background-image: url("../img/arrow_black.png");
-             }*/
           }
 
           .about__content_block {
@@ -1172,6 +1131,9 @@ $bg: transparent;
             flex-direction: column;
             align-items: center;
             margin: 0 auto;
+            //min-height: 0;
+            //overflow: hidden;
+            //display: none;
 
             .icons_block,
             .page_block,
@@ -1189,15 +1151,15 @@ $bg: transparent;
               padding-top: 15px;
             }
 
-            .icons_block {
-            }
-
-            .page_block {
-            }
-
-            .brain_block {
-            }
           }
+          .about__content_block.active {
+           display: block;
+            max-width: 240px;
+            min-height: 705px;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+         }
         }
       }
 
@@ -1222,12 +1184,8 @@ $bg: transparent;
             justify-content: center;
             align-items: center;
 
-            .research-block,
-            .portfolio-block,
-            .support-block,
-            .documentation-block,
-            .development-block,
-            .design-block {
+
+            .service_item {
               display: block;
               width: 300px;
               min-height: 192px;
@@ -1235,16 +1193,16 @@ $bg: transparent;
               padding: 0;
               margin: 0 auto 20px;
 
-              .block-title {
+              .item-title {
                 padding: 47px 0 0 140px;
                 text-align: start;
               }
 
-              .block-text {
+              .item-text {
                 display: none;
               }
 
-              .block_button {
+              .item_button {
                 width: 130px;
                 height: 40px;
                 background: $bg;
@@ -1253,6 +1211,21 @@ $bg: transparent;
                 margin-top: 50px;
               }
             }
+
+              .service_item.active {
+                background: $color_blue_green url("../img/smartphone-white 1.png") 60px 30px no-repeat;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+                .item-title,
+                .item-text {
+                  color: $color_white;
+                }
+                .item_button {
+                  border: 2px solid $color_white;
+                  color: $color_white;
+                }
+              }
+            }
+
 
             //.documentation-block,
             //.development-block,
@@ -1266,7 +1239,7 @@ $bg: transparent;
               .documentation-block:hover,
               .development-block:hover,
               .design-block:hover {
-                background: $color_blue_green url("../img/smartphone-white 1.png") center 50px no-repeat;
+                background: $color_blue_green url("../img/smartphone-white 1.png") 60px 30px no-repeat;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
                 .block-title,
                 .block-text {
@@ -1278,8 +1251,6 @@ $bg: transparent;
                 }
               }
             } */
-
-          }
           .services__block_button {
             width: 130px;
             height: 40px;
@@ -1287,8 +1258,9 @@ $bg: transparent;
             line-height: 22px;
             margin-top: 10px;
           }
+          }
+
         }
-      }
 
       .price__block {
         min-height: 1156px;
@@ -1314,15 +1286,13 @@ $bg: transparent;
             // margin: 30px auto;
             //  display: none;
             // }
-            .trial_block,
-            .basic_block,
-            .ultimate_block {
+            .price_item {
               width: 100%;
               min-height: 414px;
               text-align: center;
               margin-bottom: 20px;
 
-              .block_head {
+              .item_head {
                 width: 100%;
                 min-height: 131px;
                 display: inline-block;
@@ -1395,10 +1365,7 @@ $bg: transparent;
                   top: 85px;
                 }
 
-                .arrow_down:before {
-                }
-
-                .arrow_down:after {
+                .arrow_down.active {
                   transform: rotate(315deg);
                 }
               }
@@ -1422,15 +1389,14 @@ $bg: transparent;
                 font: normal 600 14px/157% $Family;
               }
             }
-
-            .trial_block:hover,
-            .basic_block:hover,
-            .ultimate_block:hover {
+            .price_item:hover {
               box-shadow: 0 3px 25px rgba(0, 0, 0, 0.35);
-
+            }
+            .price_item.active {
               .block_button {
                 background: $color_blue_green;
                 color: $color_white;
+                border-color: $color_blue_green;
               }
             }
           }
@@ -1523,9 +1489,7 @@ $bg: transparent;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            //.arrow_up {
-            //  display: none;
-            //}
+
             .content_block { /* Разбить на разные блоки и установить каждому свою высоту?? (средний блок на 10рх ниже) */
               display: flex;
               flex-direction: row;
@@ -1549,6 +1513,7 @@ $bg: transparent;
                 width: 100px;
                 margin-right: 0;
                 background: url("../img/image-2 1.png") left top no-repeat;
+                object-fit: contain;
               }
 
               .content_block_image_block-3 {
@@ -1679,7 +1644,7 @@ $bg: transparent;
             margin: 0 auto;
 
             .contact_form {
-              input {
+              .contact_form_input {
                 width: 300px;
                 height: 60px;
                 font: normal 600 20px/140% $Family;
@@ -1689,15 +1654,6 @@ $bg: transparent;
             }
 
             .message_form {
-              /*input {
-                width: 300px;
-                height: 150px;
-                font: normal 600 20px/140% $Family;
-                line-height: 28px;
-                padding: 14px 0 0 17px;
-                margin-bottom: 15px;
-                text-align: start;
-              }*/
               textarea {
                 width: 300px;
                 height: 150px;
@@ -1708,12 +1664,14 @@ $bg: transparent;
               }
             }
           }
-
           .contact__block__button {
             display: block;
             width: 300px;
             height: 60px;
             margin: 0 auto 30px;
+          }
+          .contact__block__button.active {
+            box-shadow: 0 3px 25px #6573cc;
           }
         }
       }
@@ -1779,6 +1737,7 @@ $bg: transparent;
       }
     }
   }
+
 
 
   @media (max-width: 480px) {
