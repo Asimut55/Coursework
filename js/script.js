@@ -30,102 +30,57 @@ for(item of activeSlideButtons) {
     });
 };
 
-const spoilers = document.querySelectorAll('.price_item_spoiler');
-const activeItems = document.querySelectorAll('.item_body');
+const itemSpoilers = document.querySelectorAll('.item_spoiler');
+const blockContainers = document.querySelectorAll('.body_block');
 
-for(spoiler of spoilers) {
-    spoiler.addEventListener('click', function () {
-        spoiler.classList.toggle('active')
-        for(activeitem of activeItems) {
-            activeitem.classList.add('active');
-        };
+for(itemSpoiler of itemSpoilers) {
+    itemSpoiler.addEventListener('click', function () {
+        const nearestBodyBlock = this.parentNode.parentNode.querySelector('.body_block');
+
         if (this.classList.contains('active')) {
-                this.classList.remove('active');
-                activeitem.classList.remove('active');
-                // child.classList.remove('item_body.active');
-            } else
+            this.classList.remove('active');
+            nearestBodyBlock.classList.remove('active');
+            return;
+        }
+
+        for(blockContainer of blockContainers) {
+            blockContainer.classList.remove('active');
+        }
+
+        for(spoiler of itemSpoilers) {
+            spoiler.classList.remove('active');
+        }
+
         this.classList.add('active');
-        activeitem.classList.add('active');
+        nearestBodyBlock.classList.add('active')
     });
 };
 
-// const spoilers = document.querySelectorAll('.price_item_spoiler');
-// spoilers.onclick = function(){
-//     spoilers.classList.toggle('price_item_spoiler.active');
-// };
+const priceItemSpoilers = document.querySelectorAll('.price_item_spoiler');
+const priceContainers = document.querySelectorAll('.item_body');
 
-// const activeItems = document.querySelector('.item_body');
-//
-// for(item of spoilers) {
-//     item.addEventListener('click', function () {
-//         for(spoiler of spoilers) {
-//
-//                 spoilers.classList.toggle('active');
-//                 // activeItems.remove('active');
-//                 // return;
-//
-//         }
-//         // spoilers.classList.add('active');
-//         // activeItems.classList.add('active');
-//     });
-// };
+for(priceItemSpoiler of priceItemSpoilers) {
+    priceItemSpoiler.addEventListener('click', function () {
+        const nearestPriceItem = this.parentNode.parentNode.querySelector('.item_body');
 
-// const spoilers = document.querySelectorAll('.price_item_spoiler');
-// const activeItems = document.querySelectorAll('.item-body');
-// for (elem of spoilers) {
-//     elem.addEventListener('click', function () {
-//         elem.classList.toggle('active')
-//     })
-// };
-// for (elem of activeItems) {
-//     elem.addEventListener('click', function () {
-//        if (spoilers.classList.contains('active')) {elem.classList.add('active')}
-//     })
-// };
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+            nearestPriceItem.classList.remove('active');
+            return;
+        }
 
-        // const parent = item.parentNode;
-        // const child = item.childNodes;
-        // if (parent.classList.contains('price_item_spoiler.active')) {
-        //     parent.classList.remove('price_item_spoiler.active');
-        //     // child.classList.remove('item_body.active');
-        // } else {
-        //     document
-        //         .querySelectorAll('.item-body').forEach((child) =>
-        //         child.classList.add('item_body.active'))
-        //     document.querySelectorAll('.price_item_spoiler')
-        //     item.classList.toggle('price_item_spoiler.active')
-        // }
+        for(priceContainer of priceContainers) {
+            priceContainer.classList.remove('active');
+        }
 
+        for(priceItemSpoiler of priceItemSpoilers) {
+            priceItemSpoiler.classList.remove('active');
+        }
 
-// document.querySelectorAll('.price_item_spoiler').forEach((item) =>
-//
-//     item.addEventListener('click', () => {
-//         const parent = item.parentNode;
-//         const child = item.childNodes;
-//         if (parent.classList.contains('price_item_spoiler.active')) {
-//             parent.classList.remove('price_item_spoiler.active');
-//             child.classList.remove('item_body.active');
-//         } else {
-//             parent.classList.add('price_item_spoiler.active');
-//             document
-//                 .querySelectorAll('.item-body').forEach((child) =>
-//                 child.classList.add('item_body.active'));
-//             parent.classList.add('price_item_spoiler.active');
-//         }
-//     })
-// )
-
-
-// const spoiler = document.querySelectorAll('.price_item_spoiler');
-// const priceBlock = document.querySelector('.item_body');
-// if (spoiler){
-//     const priceBlock = document.querySelector('.item_body');
-//     spoiler.addEventListener('click', function (e) {
-//         spoiler.classList.toggle('active');
-//         priceBlock.classList.toggle('active');
-//
-//     });
-// };
+        this.classList.add('active');
+        nearestPriceItem.classList.add('active')
+    });
+};
 
 const activeServiceBlocks = document.querySelectorAll('.service_item');
 
@@ -133,15 +88,44 @@ for(item of activeServiceBlocks) {
     item.addEventListener('click', function () {
         if(this.classList.contains('active')) {
             this.classList.remove ('active');
+            this.querySelector('.service_logo').setAttribute('src', 'img/smartphone-black_1.png');
         } else {
             for(el of activeServiceBlocks) {
                 el.classList.remove('active');
+                el.querySelector('.service_logo').setAttribute('src', 'img/smartphone-black_1.png');
             }
             this.classList.add('active');
-            document.getElementsByClassName('service_logo').src = '/smartphone-white_1.png';
+            this.querySelector('.service_logo').setAttribute('src', 'img/smartphone-white_1.png');
         };
     });
 };
+// const activeServiceBlocks = document.querySelectorAll('.service_item');
+//
+// for(item of activeServiceBlocks) {
+//     item.addEventListener('click', function () {
+//         if(this.classList.contains('active')) {
+//             this.classList.remove ('active');
+//         } else {
+//             for(el of activeServiceBlocks) {
+//                 el.classList.remove('active');
+//             }
+//             this.classList.add('active');
+//             document.getElementsByClassName('service_logo').src = '/smartphone-white_1.png';
+//         };
+//     });
+// };
+
+
+const servicesButton = document.querySelector('.services__block_button');
+
+servicesButton.addEventListener('click', function () {
+    const buttonContentItems = document.querySelectorAll('.button_content');
+    for(buttonContentItem of buttonContentItems) {
+        buttonContentItem.classList.toggle('hidden');
+    }
+});
+
+
 
 const activePriceButtons = document.querySelectorAll('.price_item_button');
 for(item of activePriceButtons) {
