@@ -99,21 +99,6 @@ for(item of activeServiceBlocks) {
         };
     });
 };
-// const activeServiceBlocks = document.querySelectorAll('.service_item');
-//
-// for(item of activeServiceBlocks) {
-//     item.addEventListener('click', function () {
-//         if(this.classList.contains('active')) {
-//             this.classList.remove ('active');
-//         } else {
-//             for(el of activeServiceBlocks) {
-//                 el.classList.remove('active');
-//             }
-//             this.classList.add('active');
-//             document.getElementsByClassName('service_logo').src = '/smartphone-white_1.png';
-//         };
-//     });
-// };
 
 
 const servicesButton = document.querySelector('.services__block_button');
